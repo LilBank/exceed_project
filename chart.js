@@ -31,7 +31,7 @@ window.onload = function () {
     buttonStart.onclick = function() {
     
         clearInterval(Interval);
-        Interval = setInterval(startTimer, 1);
+        Interval = setInterval(startTimer, 10);
         timer = true;
 
         if (window.hasOwnProperty('webkitSpeechRecognition')) {
