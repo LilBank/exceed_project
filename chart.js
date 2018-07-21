@@ -3,9 +3,11 @@ let lineX = 1;
 let adver = 0;
 let count = 1;
 let countBuzzer = 0;
+let startTime = 0;
+let timer = false;
 let startBuzzer = [];
 let responseBuzzer = '0';
-
+var chart;
 var i;
 
 
@@ -19,17 +21,20 @@ window.onload = function () {
     var buttonStop = document.getElementById('button-stop');
     var buttonReset = document.getElementById('button-reset');
     var Interval;
+    createChart();
 
     buttonStart.onclick = function() {
     
         clearInterval(Interval);
         Interval = setInterval(startTimer, 10);
-       
+        timer = true;
+
      }
 
     buttonStop.onclick = function () {
         
         clearInterval(Interval);
+        timer = false;
     }
 
 
@@ -40,7 +45,9 @@ window.onload = function () {
         appendTens.innerHTML = tens;
         appendSeconds.innerHTML = seconds;
         startBuzzer = [];
-
+        countBuzzer = 0;
+        createChart();
+        timer = false;
     }
 
 
@@ -58,7 +65,6 @@ window.onload = function () {
         }
 
         if (tens > 99) {
-            console.log('second');
             countBuzzer+=1;
             seconds++;
             appendSeconds.innerHTML = "0" + seconds;
@@ -75,22 +81,21 @@ window.onload = function () {
 
 }
 
-    var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        axisY: {
-            title: "Units Sound",
-            valueFormatString: "#,,.",
-        },
-        data: [{
-            yValueFormatString: "#,###",
-            xValueFormatString: "YYYY",
-            type: "spline",
-            dataPoints: [
-                {x: 1, y: 1}
-
-            ]
-        }]
-    });
+    function createChart() {
+        chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            axisY: {
+                title: "Units Sound",
+                valueFormatString: "#,,.",
+            },
+            data: [{
+                yValueFormatString: "#,###",
+                xValueFormatString: "YYYY",
+                type: "spline",
+                dataPoints: []
+            }]
+        });
+    }
 
     setInterval(function () {
         // count += 1
@@ -103,12 +108,11 @@ window.onload = function () {
                 
                 let a = parseInt(response)
                 // console.log(response);
-                if(response !== '0' ){
+                if(response !== '0' && countBuzzer !== 0){
                     chart.options.data[0].dataPoints.push({ x: countBuzzer, y: a });
-                    // console.log(response);
                     chart.render();
                 }
-            },
+            }, 
             fall: function(response){
                 console.log(response)
             }
@@ -124,8 +128,9 @@ window.onload = function () {
             dataType: "text",
             success: function (response) {
                 
-                if(response !== responseBuzzer){
-                    startBuzzer.push(countBuzzer);
+                if(response !== responseBuzzer && timer === true){
+                    startBuzzer.push({ x: startTime, y: countBuzzer+2});
+                    startTime = countBuzzer+2;
                     console.log(startBuzzer);
                     responseBuzzer = response;
                 }
