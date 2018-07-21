@@ -3,6 +3,8 @@ $(function () {
     let speech = ""
     var forcestop = false
 
+    $("#speechid").html(`${"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASDFGHJKSDFGHJKSDFGHJKLASDFGHJKL:ASDFGHJKL"}`)
+
     $("#start").on('click', function () {
 
         if (window.hasOwnProperty('webkitSpeechRecognition')) {
