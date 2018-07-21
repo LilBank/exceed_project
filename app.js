@@ -1,6 +1,8 @@
 
 $(function () {
     var recognition = new webkitSpeechRecognition()
+    let speech = ""
+    var forcestop = false
 
     $("#start").on('click', function () {
 
@@ -14,20 +16,37 @@ $(function () {
             recognition.start();
 
             recognition.onresult = function (e) {
+                console.log("onresult")
                 console.log(e)
-                $("#transcript").val(e.results[0][0].transcript)
-                //  recognition.stop();
+                speech = speech + e.results[0][0].transcript
+                console.log(speech)
+
             };
 
-            recognition.onerror = function (e) {
+            recognition.onend = function (e) {
+                console.log("onend")
                 console.log(e)
-                //  recognition.stop();
+                if (forcestop) {
+                    forcestop = false
+                    $("#transcript").val(speech);
+                } else {
+                    recognition.start();
+                }
             }
 
+            recognition.onerror = function (e) {
+                console.log("on error")
+                console.log(e)
+            }
+
+        } else {
+            alert("Must upgrade browser.")
         }
     })
 
     $("#stop").on('click', function () {
+        console.log("stop")
+        forcestop = true
         recognition.stop();
     })
 
