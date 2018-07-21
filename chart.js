@@ -7,6 +7,9 @@ let startTime = 0;
 let timer = false;
 let startBuzzer = [];
 let responseBuzzer = '0';
+var recognition = new webkitSpeechRecognition()
+let speech = ""
+var forcestop = false
 var chart;
 var i;
 
@@ -15,6 +18,7 @@ window.onload = function () {
 
     var seconds = 00;
     var tens = 00;
+    var min = 00;
     var appendTens = document.getElementById("tens");
     var appendSeconds = document.getElementById("seconds");
     var buttonStart = document.getElementById('button-start');
@@ -29,12 +33,53 @@ window.onload = function () {
         Interval = setInterval(startTimer, 10);
         timer = true;
 
+        if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+            recognition.continuous = true;
+            recognition.interimResults = false;
+
+            recognition.lang = "en-US";
+            recognition.lang = "th-TH"
+            recognition.start();
+
+            recognition.onresult = function (e) {
+                // console.log("onresult")
+                // console.log(e)
+                speech = speech + e.results[0][0].transcript
+                // console.log(speech)
+
+            };
+
+            recognition.onend = function (e) {
+                // console.log("onend")
+                // console.log(e)
+                if (forcestop) {
+                    forcestop = false
+                    $("#transcript").val(speech);
+                } else {
+                    recognition.start();
+                }
+            }
+
+            recognition.onerror = function (e) {
+                // console.log("on error")
+                // console.log(e)
+            }
+
+        } else {
+            alert("Must upgrade browser.")
+        }
+
      }
 
     buttonStop.onclick = function () {
         
         clearInterval(Interval);
         timer = false;
+
+        // console.log("stop")
+        forcestop = true
+        recognition.stop();
     }
 
 
@@ -42,6 +87,7 @@ window.onload = function () {
         clearInterval(Interval);
         tens = "00";
         seconds = "00";
+        min = "00";
         appendTens.innerHTML = tens;
         appendSeconds.innerHTML = seconds;
         startBuzzer = [];
@@ -70,6 +116,11 @@ window.onload = function () {
             appendSeconds.innerHTML = "0" + seconds;
             tens = 0;
             appendTens.innerHTML = "0" + 0;
+        }
+
+        if(seconds > 60){
+            min++;
+            appendSeconds.innerHTML = min;
         }
 
         if (seconds > 9) {
