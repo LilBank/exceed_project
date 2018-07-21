@@ -18,7 +18,8 @@ window.onload = function () {
 
     var seconds = 00;
     var tens = 00;
-    var min = 00;
+    var mins = 00;
+    var appendMins = document.getElementById("mins");
     var appendTens = document.getElementById("tens");
     var appendSeconds = document.getElementById("seconds");
     var buttonStart = document.getElementById('button-start');
@@ -87,9 +88,10 @@ window.onload = function () {
         clearInterval(Interval);
         tens = "00";
         seconds = "00";
-        min = "00";
+        mins = "00";
         appendTens.innerHTML = tens;
         appendSeconds.innerHTML = seconds;
+        appendMins.innerHTML = mins;
         startBuzzer = [];
         countBuzzer = 0;
         createChart();
@@ -110,17 +112,25 @@ window.onload = function () {
 
         }
 
+        if(seconds > 59){
+            // countMins++;
+            mins++;
+            appendMins.innerHTML = "0"+mins;
+            seconds = 0;
+            appendSeconds.innerHTML = "0" + seconds;
+        }
+
+        if(mins > 9){
+            appendMins.innerHTML = mins;
+
+        }
+        
         if (tens > 99) {
             countBuzzer += 1;
             seconds++;
             appendSeconds.innerHTML = "0" + seconds;
             tens = 0;
             appendTens.innerHTML = "0" + 0;
-        }
-
-        if (seconds > 60) {
-            min++;
-            appendSeconds.innerHTML = min;
         }
 
         if (seconds > 9) {
