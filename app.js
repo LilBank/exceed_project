@@ -3,7 +3,7 @@ $(function () {
     let speech = ""
     var forcestop = false
 
-    $("#speechid").html(`${"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASDFGHJKSDFGHJKSDFGHJKLASDFGHJKL:ASDFGHJKLASSSSSSSDDDDDDDFFFFFFFFGGGG"}`)
+    $("#speechid").html(`${"AAAAAAAAA"}`)
 
     $("#start").on('click', function () {
 
