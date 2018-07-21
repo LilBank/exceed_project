@@ -8,12 +8,9 @@ window.onload = function () {
     
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
-        title: {
-            text: "Sound Chart"
-        },
         axisY: {
             title: "Units Sound",
-            // valueFormatString: "#0.",
+            valueFormatString: "#0.",
                                     
             suffix: "dB",
             stripLines: [{
@@ -35,10 +32,6 @@ window.onload = function () {
         lineY = i
         lineX = i
         chart.options.data[0].dataPoints.push({x: lineX, y: lineY});
-        // chart.options.data[0].dataPoints.push({y: lineX});    
     }
-
-    
-
     chart.render();
     }
