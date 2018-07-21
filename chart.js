@@ -86,6 +86,7 @@ window.onload = function () {
 
     buttonReset.onclick = function () {
         clearInterval(Interval);
+        speech = ""
         tens = "00";
         seconds = "00";
         mins = "00";
@@ -112,19 +113,19 @@ window.onload = function () {
 
         }
 
-        if(seconds > 59){
+        if (seconds > 59) {
             // countMins++;
             mins++;
-            appendMins.innerHTML = "0"+mins;
+            appendMins.innerHTML = "0" + mins;
             seconds = 0;
             appendSeconds.innerHTML = "0" + seconds;
         }
 
-        if(mins > 9){
+        if (mins > 9) {
             appendMins.innerHTML = mins;
 
         }
-        
+
         if (tens > 99) {
             countBuzzer += 1;
             seconds++;
