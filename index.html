@@ -91,13 +91,21 @@
         <div class="container">
             <div class="section-title text-center center">
                 <h2>Display</h2>
+                
+                <div class="wrapper">
+                        <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+                        <button id="button-start">Start</button>
+                        <button id="button-stop">Stop</button>
+                        <button id="button-reset">Reset</button>
+                </div> 
+                        
+                 </div>
                 <hr>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-12">
                     <div class="about-text" style="text-align: center">
-                        <h3>#####</h3>
-                        <p>#####</p>
+                        
                         <button id="myBtn" class="btn btn-custom btn-lg">Report</button>
 
                         <!-- The Modal -->
@@ -142,13 +150,13 @@
     <!-- Services Section -->
     <div id="services" class="text-center">
         <div>
-            <h2>Attendee's Request</h2>
+            <h2>User Request</h2>
             <hr>
             <img src="micpic.png" width="55px" height="98px" style="margin-top: 30px">
             <div>
-            <input class="btn btn-custom" type="button" value="On" id="onoff" onclick="onoff();">
+                    <input class="btn btn-custom" type="button" value="On" id="onoff" onclick="onoff();">
             </div>
-           
+            
             
         </div>
     
@@ -159,6 +167,7 @@
             <div class="container">
                 <div class="section-title text-center center" style="margin-top: 100px">
                     <h2>Sound Chart</h2>
+                    
                     <hr>
                 </div>
                 <div class="row">
@@ -179,16 +188,18 @@
         </div>
     </div>
 
+    
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+   
     <script src = "./chart.js"> </script>
     <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/SmoothScroll.js"></script>
     <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-    <script type="text/javascript" src="js/contact_me.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script src="./app.js"></script>
-
+    
+    
 </body>
 
 </html>
