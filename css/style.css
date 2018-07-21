@@ -68,9 +68,9 @@ hr {
 }
 #menu a.navbar-brand {
 	font-size: 20px;
-	color: #444;
+	color:black;
 	font-weight: 500;
-	text-transform: uppercase;
+	
 }
 #menu a.navbar-brand i.fa {
 	color: #0ba2db;
@@ -78,7 +78,7 @@ hr {
 }
 #menu.navbar-default .navbar-nav > li > a {
 	text-transform: uppercase;
-	color: #444;
+	color: rgb(0, 0, 0);
 	font-weight: 400;
 	font-size: 15px;
 	letter-spacing: 1px;
@@ -123,7 +123,7 @@ hr {
 	margin-top: 20px;
 	transition: all 0.3s;
 }
-.btn-custom:hover, .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
+ .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
 	color: #fff;
 	background-color: #444;
 }
@@ -143,7 +143,7 @@ hr {
 	background: rgba(255,255,255,0.2);
 }
 .intro h1 {
-	color: #0ba2db;
+	color: white;
 	font-size: 74px;
 	font-weight: 600;
 	margin-top: 0;
@@ -151,7 +151,7 @@ hr {
 	margin-bottom: 10px;
 }
 .intro p {
-	color: #444;
+	color: rgb(255, 255, 255);
 	font-size: 28px;
 	margin-top: 10px;
 	margin-bottom: 40px;
@@ -414,3 +414,14 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin-bottom: 20px;
 }
 }
+
+mark{
+	background:rgb(11, 162, 219,0.8);
+	color: white;
+
+}
+
+
+  .cen{
+	  text-align: center;
+  }
