@@ -247,6 +247,10 @@ header .intro-text {
 	border-color: #fff;
 	color: #fff;
 }
+
+.forntSize{
+	font-size: 80px;
+}
 .pricing-table .plan-name {
 	padding: 15px 0;
 	box-shadow: 0 0 20px rgba(0,0,0,0.05) inset;
