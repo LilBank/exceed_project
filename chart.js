@@ -37,5 +37,8 @@ window.onload = function () {
         chart.options.data[0].dataPoints.push({x: lineX, y: lineY});
         // chart.options.data[0].dataPoints.push({y: lineX});    
     }
+
+    
+
     chart.render();
     }
