@@ -191,17 +191,25 @@ window.onclick = function (event) {
 
 
 $('#myBtn').on('click', function () {
-    
+
     let duration = []
+    let firstDuration = []
     for (let index = 0; index < startBuzzer.length; index++) {
-        duration[index] = "" + (startBuzzer[index + 1] - startBuzzer[index]);
+        let i = startBuzzer[index]
+        console.log(i.x)
+        console.log(i.y)
+        duration[index] = i.y - i.x;
+        firstDuration[index] = i.x
         console.log(duration)
 
     }
-    for (let index = 0; index < speech.length; index++) {
-        if (index === duration[index]) {
-            $("#errorDuration").append("Should improve at line " + speech.length % 36)
+    for (let index = 0; index < firstDuration.length; index++) {
+        if (firstDuration[index] === 0) {
+            continue;
         }
+        let num = firstDuration[index] / 36
+        $("#errorDuration").append("Should improve at line " + Math.ceil(num)+"<br/>")
+        console.log(num)
     }
 
 })
