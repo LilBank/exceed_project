@@ -191,8 +191,7 @@ window.onclick = function (event) {
 
 
 $('#myBtn').on('click', function () {
-    $("#errorDuration").html("<h1>Attention lost at sentence:</h1>")
-    $("#errorDuration").append("lineeeeeeeeeee")
+    
     let duration = []
     for (let index = 0; index < startBuzzer.length; index++) {
         duration[index] = "" + (startBuzzer[index + 1] - startBuzzer[index]);
