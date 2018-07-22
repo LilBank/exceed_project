@@ -115,27 +115,43 @@
                           <div class="modal-content">
                             <span class="close">&times;</span>
                             <div>
-                            <h3 class="alert alert-success" role="alert" style="font-family: Arial, Helvetica, sans-serif; font-size: 35px"><b>REPORT<b></h3>
+                            <h3 class="alert alert-success" role="alert" style="font-family: 'Roboto', sans-serif; font-size: 35px"><b>REPORT<b></h3>
                             
                           </div>
                         <div class="row">
                         <div class="col">
                             <!-- Speech-->
-                                <div id = "speechid" class="border" style="word-wrap: break-word; width: 1000px; height: 400px; font-size: 20px; margin: auto; text-align: center; overflow: scroll"></div>
+                                <div id = "speechid" class="border" style="word-wrap: break-word; width: 100%; height: 400px; font-size: 20px; margin: auto; text-align: center; overflow: scroll "></div>
                             
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                        <div class="border" style="width: 1000px; height: 400px; background-color: red; margin: auto; margin-top: 20px;"></div>
-                        </div>
                         </div>
                         </div>
                         <div class="row">
                         <div class="col">
-                            <div style="width: 1000px; height: 400px; background-color: purple; margin: auto; margin-top: 20px;"></div>
+                                    <!-- Below Speech-->
+                            <div class="border" style="word-wrap: break-word; width: 100%; height: 100px; margin: auto; text-align: center; overflow: scroll ; background-color: peachpuff "></div>
+                                    
                         </div>
-
                         </div>
+                       
+                        <div class="row">
+                            <div class="col">
+                                
+                                    <div>
+                                            <h3 class="alert alert-info" role="alert" style="font-family: 'Roboto', sans-serif; font-size: 35px"><b>Spent Time<b></h3>
+                                            
+                                          </div>      
+                        <div style="margin-top:100px;">
+                            <font style="font-size: 40px" id="min1" color="black"></font>
+                        </div>
+                        </div>
+                        </div>
+                        
+                        <div class="row">
+                        <div class="col">
+                            <div style="width: 100%; height: 100px; background-color: white; margin: auto; margin-top: 20px;"></div>
+                        </div>
+                        </div>
+                        
                         </div>
 
                         </div>
@@ -154,7 +170,7 @@
             <hr>
             <img src="micpic.png" width="55px" height="98px" style="margin-top: 30px">
             <div>
-                    <input class="btn btn-custom" type="button" value="On" id="onoff" onclick="onoff();">
+                    <button id="lightbutton" class="btn btn-custom">On/Off</button>
             </div>
             
             
