@@ -47,7 +47,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" style="font-family: Arial, Helvetica, sans-serif" href="#page-top">
-                    <i class="fa fa-bookmark"></i> <b>Seminar</b> Assistant</a>
+                    <i class="fa fa-bookmark"></i>
+                    <b>Seminar</b> Assistant</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,8 +58,8 @@
                         <a href="#about" class="page-scroll">Control Panel</a>
                     </li>
                     <li>
-                            <a href="#services" class="page-scroll">Request</a>
-                        </li>
+                        <a href="#services" class="page-scroll">Microphone</a>
+                    </li>
                     <li>
                         <a href="#chart" class="page-scroll">Sound Chart</a>
                     </li>
@@ -76,9 +77,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="intro-text">
-                            
-                            <h1><mark>Seminar Assistant<mark></h1>
-                            
+
+                            <h1>
+                                <mark>Seminar Assistant
+                                    <mark>
+                            </h1>
+
                             <a href="#about" class="btn btn-custom btn-lg page-scroll">Let's go</a>
                         </div>
                     </div>
@@ -93,108 +97,118 @@
                 <h2>Control Panel</h2>
                 <hr>
                 <div class="wrapper">
-                        <h1 class ="forntSize"><span id="mins">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></h1>
-                        <button id="button-start">Start</button>
-                        <button id="button-stop">Stop</button>
-                        <button id="button-reset">Reset</button>
-                </div> 
-                        
-                 </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-md-12">
-                    <div class="about-text" style="text-align: center">
-                        
-                        <button id="myBtn" class="btn btn-custom btn-lg">Report</button>
+                    <h1 class="forntSize">
+                        <span id="mins">00</span>:
+                        <span id="seconds">00</span>:
+                        <span id="tens">00</span>
+                    </h1>
+                    <button id="button-start">Start</button>
+                    <button id="button-stop">Stop</button>
+                    <button id="button-reset">Reset</button>
+                </div>
 
-                        <!-- The Modal -->
-                        <div id="myModal" class="modal">
-                        
-                          <!-- Modal content -->
-                          <div class="modal-content">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="about-text" style="text-align: center">
+
+                    <button id="myBtn" class="btn btn-custom btn-lg">Report</button>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
                             <span class="close">&times;</span>
                             <div>
-                            <h3 class="alert alert-success" role="alert" style="font-family: 'Roboto', sans-serif; font-size: 35px"><b>REPORT<b></h3>
-                            
-                          </div>
-                        <div class="row">
-                        <div class="col">
-                            <!-- Speech-->
-                                <div id = "speechid" class="border" style="word-wrap: break-word; width: 100%; height: 400px; font-size: 20px; margin: auto; text-align: center; overflow: scroll "></div>
-                            
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col">
+                                <h3 class="alert alert-success" role="alert" style="font-family: 'Roboto', sans-serif; font-size: 35px">
+                                    <b>REPORT
+                                        <b>
+                                </h3>
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <!-- Speech-->
+                                    <div id="speechid" class="border" style="word-wrap: break-word; width: 100%; height: 400px; font-size: 20px; margin: auto; text-align: center; overflow: scroll "></div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
                                     <!-- Below Speech-->
-                            <div class="border" style="word-wrap: break-word; width: 100%; height: 100px; margin: auto; text-align: center; overflow: scroll ; background-color: peachpuff "></div>
-                                    
-                        </div>
-                        </div>
-                       
-                        <div class="row">
-                            <div class="col">
-                                
+                                    <div id="errorDuration" class="border" style="word-wrap: break-word; width: 100%; height: 100px; margin: auto; text-align: center;background-color: peachpuff "></div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+
                                     <div>
-                                            <h3 class="alert alert-info" role="alert" style="font-family: 'Roboto', sans-serif; font-size: 35px"><b>Spent Time<b></h3>
-                                            
-                                          </div>      
-                        <div style="margin-top:100px;">
-                            <font style="font-size: 40px" id="min1" color="black"></font>
-                        </div>
-                        </div>
-                        </div>
-                        
-                        <div class="row">
-                        <div class="col">
-                            <div style="width: 100%; height: 100px; background-color: white; margin: auto; margin-top: 20px;"></div>
-                        </div>
-                        </div>
-                        
-                        </div>
+                                        <h3 class="alert alert-info" role="alert" style="font-family: 'Roboto', sans-serif; font-size: 35px">
+                                            <b>Speech Duration
+                                                <b>
+                                        </h3>
+
+                                    </div>
+                                    <div style="margin-top:100px;">
+                                        <font style="font-size: 40px" id="min1" color="black"></font>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div style="width: 100%; height: 100px; background-color: white; margin: auto; margin-top: 20px;"></div>
+                                </div>
+                            </div>
 
                         </div>
-                        
 
                     </div>
+
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     <!-- Services Section -->
     <div id="services" class="text-center">
         <div>
-            <h2>User Request</h2>
+            <h2>Audience Microphone</h2>
             <hr>
             <img src="micpic.png" width="55px" height="98px" style="margin-top: 30px">
             <div>
-                    <button id="lightbutton" class="btn btn-custom">On/Off</button>
+                <button id="lightbutton" class="btn btn-custom">On/Off</button>
             </div>
-            
-            
+
+
         </div>
-    
-        
+
+
     </div>
     <!-- About Section -->
     <div id="chart">
-            <div class="container">
-                <div class="section-title text-center center" style="margin-top: 100px">
-                    <h2>Sound Chart</h2>
-                    
-                    <hr>
-                </div>
-                <div class="row">
-                        <div class="container" style="margin-bottom: 60px;">
-                                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                                </div>
-                            </div>
+        <div class="container">
+            <div class="section-title text-center center" style="margin-top: 100px">
+                <h2>Sound Chart</h2>
+
+                <hr>
+            </div>
+            <div class="row">
+                <div class="container" style="margin-bottom: 60px;">
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
+    </div>
+    </div>
 
     <!-- /////////Footer/////////// -->
     <div id="footer">
@@ -204,17 +218,17 @@
         </div>
     </div>
 
-    
+
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-   
+
     <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/SmoothScroll.js"></script>
     <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script src = "./chart.js"> </script>
-    
-    
+    <script src="./chart.js"> </script>
+
+
 </body>
 
 </html>

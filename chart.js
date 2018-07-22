@@ -2,7 +2,7 @@ let lineY = 0;
 let lineX = 1;
 let adver = 0;
 let count = 1;
-let light="0"
+let light = "0"
 let countBuzzer = 0;
 let countMins = 0;
 let startTime = 0;
@@ -36,6 +36,7 @@ window.onload = function () {
         Interval = setInterval(startTimer, 10);
         timer = true;
         document.getElementById('myBtn').style.visibility = 'hidden';
+        document.getElementById('button-start').disabled = true;
 
         if (window.hasOwnProperty('webkitSpeechRecognition')) {
 
@@ -81,14 +82,15 @@ window.onload = function () {
         clearInterval(Interval);
         timer = false;
         document.getElementById('myBtn').style.visibility = 'visible';
-        
-        if(mins>0){
-            $("#min1").html(`${mins} Min : ${seconds} Sec`);
+        document.getElementById('button-start').disabled = false;
+
+        if (mins > 0) {
+            $("#min1").html(`${mins} min(s) : ${seconds} Sec`);
             // $("#speechid").html(`${speech}`)
-            console.log(mins+"minute :"+seconds );
-        }else{
-            $("#min1").html(`${seconds} Sec`);
-            console.log(seconds+" second")
+            console.log(mins + "minute :" + seconds);
+        } else {
+            $("#min1").html(`${seconds} sec(s)`);
+            console.log(seconds + " second")
         }
 
         forcestop = true
@@ -98,6 +100,8 @@ window.onload = function () {
 
     buttonReset.onclick = function () {
         clearInterval(Interval);
+        document.getElementById('myBtn').style.visibility = 'hidden';
+        document.getElementById('button-start').disabled = false;
         speech = ""
         tens = "00";
         seconds = "00";
@@ -184,6 +188,26 @@ window.onclick = function (event) {
     }
 }
 
+
+
+$('#myBtn').on('click', function () {
+    $("#errorDuration").append("Attention lost at sentence:")
+    let duration = []
+    for (let index = 0; index < startBuzzer.length; index++) {
+        duration[index] = "" + (startBuzzer[index + 1] - startBuzzer[index]);
+        console.log(duration)
+
+    }
+    for (let index = 0; index < speech.length; index++) {
+        if (index === duration[index]) {
+            $("#errorDuration").append("Should improve at line " + speech.length % 36)
+        }
+    }
+
+})
+
+
+
 function createChart() {
     chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
@@ -239,16 +263,16 @@ setInterval(function () {
             }
 
         }
-    
+
     });
 
     $.ajax({
         type: "GET",
-        url: "http://ecourse.cpe.ku.ac.th:1515/api/wongpalm-Switch_status/view",
+        url: "http://ecourse.cpe.ku.ac.th/exceed/api/wongpalm-Switch_status/view",
         dataType: "text",
         success: function (response) {
 
-            if (response === '0') {
+            if (response === '1') {
                 console.log("Light off")
             } else {
                 console.log("Light on")
@@ -257,32 +281,32 @@ setInterval(function () {
             light = response
         }
     });
-    
+
 
 }, 1000);
 
 
-    $('#lightbutton').on('click',function(){
-        if(light==="0"){
-            light = "1"
-        }else{
-            light = "0"
+$('#lightbutton').on('click', function () {
+    if (light === "1") {
+        light = "0"
+    } else {
+        light = "1"
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "http://ecourse.cpe.ku.ac.th/exceed/api/wongpalm-Switch_status/set",
+        data: {
+            value: light
+        },
+        dataType: "json",
+        success: function (response) {
+            console.log("Light On")
+
         }
-
-        $.ajax({
-            type: "POST",
-            url: "http://ecourse.cpe.ku.ac.th/exceed/api/wongpalm-Switch_status/set",
-            data: {
-                value: light
-            },
-            dataType: "json",
-            success: function (response) {
-                console.log("Light On")
-                
-            }
-        });
+    });
 
 
 
-    })
+})
 
