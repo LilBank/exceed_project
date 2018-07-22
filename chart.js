@@ -3,6 +3,7 @@ let lineX = 1;
 let adver = 0;
 let count = 1;
 let countBuzzer = 0;
+let countMins = 0;
 let startTime = 0;
 let timer = false;
 let startBuzzer = [];
